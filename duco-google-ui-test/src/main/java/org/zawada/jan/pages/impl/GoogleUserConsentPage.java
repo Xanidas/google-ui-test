@@ -1,22 +1,25 @@
-package org.zawada.jan.pages;
+package org.zawada.jan.pages.impl;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Author: Jan Zawada
+ * This is POM representing User consent Page
+ * @author: Jan Zawada
  */
 public class GoogleUserConsentPage {
 
-    WebDriver driver;
+    private WebDriver driver;
+    private String url = "https://www.google.com";
     //When it is generally better to use other selectors dynamic name generation of html elements on google search makes it unsustainable
-    By header = By.xpath("//h1");
-    By acceptButton = By.xpath("//*[text()='Accept all']");
-    By rejectButton = By.xpath("//*[text()='Reject all']");
-    By signInButton = By.xpath("//*[text()='Sign in']");
+    private By header = By.xpath("//h1");
+    private By acceptButton = By.xpath("//*[text()='Accept all']");
+    private By rejectButton = By.xpath("//*[text()='Reject all']");
+    private By signInButton = By.xpath("//*[text()='Sign in']");
 
     public GoogleUserConsentPage(WebDriver driver) {
         this.driver = driver;
+        driver.get(url);
     }
 
     public String getTitle() {
@@ -33,5 +36,9 @@ public class GoogleUserConsentPage {
 
     public void acceptAll() {
         driver.findElement(acceptButton).click();
+    }
+
+    public void goToSignIn() {
+        driver.findElement(signInButton).click();
     }
 }
