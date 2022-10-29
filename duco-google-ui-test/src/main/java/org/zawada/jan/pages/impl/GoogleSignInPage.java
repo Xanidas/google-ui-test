@@ -13,7 +13,7 @@ public class GoogleSignInPage {
     private By loginInput = By.id("identifierId");
     private By nextBtn = By.xpath("//*[text()='Next']");
     private By passwordInput = By.name("Passwd");
-    private By showPwdCheckbox = By.xpath("//*[@type,'checkbox'")
+    private By showPwdCheckbox = By.xpath("//*[@type='checkbox'");
 
     public GoogleSignInPage(WebDriver driver) {
         this.driver = driver;

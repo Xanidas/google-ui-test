@@ -9,11 +9,11 @@ import org.zawada.jan.pages.SearchPage;
  * @author: Jan Zawada
  */
 public class GoogleSearchMainPage implements SearchPage {
-    private WebDriver driver;
+    protected WebDriver driver;
     
-    private By searchInput = By.name("q");
-    private By searchBtn = By.name("btnK");
-    private By luckyBtn = By.name("btnI");
+    protected By searchInput = By.name("q");
+    protected By searchBtn = By.name("btnK");
+    protected By luckyBtn = By.name("btnI");
 
     public GoogleSearchMainPage(WebDriver driver) {
         this.driver = driver;
@@ -25,14 +25,14 @@ public class GoogleSearchMainPage implements SearchPage {
     }
 
     @Override
-    public void search(String query) {
-        driver.findElement(searchInput).sendKeys(query);
+    public void search(String phrase) {
+        driver.findElement(searchInput).sendKeys(phrase);
         driver.findElement(searchBtn).click();        
     }
 
     @Override
-    public void searchLuckyStrike(String query) {
-        driver.findElement(searchInput).sendKeys(query);
+    public void searchLuckyStrike(String phrase) {
+        driver.findElement(searchInput).sendKeys(phrase);
         driver.findElement(luckyBtn).click();        
     }
     
