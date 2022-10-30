@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 public class GoogleUserConsentPage {
 
     private WebDriver driver;
-    private String url = "https://www.google.com";
     //When it is generally better to use other selectors dynamic name generation of html elements on google search makes it unsustainable
     private By header = By.xpath("//h1");
     private By acceptButton = By.xpath("//*[text()='Accept all']");
@@ -19,7 +18,6 @@ public class GoogleUserConsentPage {
 
     public GoogleUserConsentPage(WebDriver driver) {
         this.driver = driver;
-        driver.get(url);
     }
 
     public String getTitle() {

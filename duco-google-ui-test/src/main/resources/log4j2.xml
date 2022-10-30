@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+    <Appenders>
+        <File name="DefaultFile" fileName="logs/default.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} - %message{nolookups}%xThrowable{separator(|)}%n" />
+        </File>
+        <File name="ConsentFile" fileName="logs/tests/user-consent.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} - %message{nolookups}%xThrowable{separator(|)}%n" />
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="ERROR">
+            <AppenderRef ref="DefaultFile"/>
+        </Root>
+        <logger name="org.zawada.jan" level="ERROR">
+            <AppenderRef ref="DefaultFile"/>
+        </logger>
+        <logger name="org.zawada.jan.pages.impl.GoogleUserConsentPageTest" level="INFO">
+            <AppenderRef ref="ConsentFile"/>
+        </logger>
+    </Loggers>
+</Configuration>
