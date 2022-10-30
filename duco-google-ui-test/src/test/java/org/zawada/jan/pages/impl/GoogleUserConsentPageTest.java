@@ -28,6 +28,8 @@ public class GoogleUserConsentPageTest {
     public static void setup(){
         webDriver = new SafariDriver();
         googleUserConsentPage = new GoogleUserConsentPage(webDriver);
+
+        logger.info(webDriver.toString());
         
         webDriver.manage().timeouts().implicitlyWait(Duration.ofMillis(1000L));
         webDriver.manage().window().maximize();
@@ -39,6 +41,11 @@ public class GoogleUserConsentPageTest {
     @AfterAll
     public static void cleanup() {
         webDriver.quit();
+    }
+
+    @BeforeEach
+    public void logStartOfNewCase() {
+        logger.info("===========================================");
     }
 
     @Test

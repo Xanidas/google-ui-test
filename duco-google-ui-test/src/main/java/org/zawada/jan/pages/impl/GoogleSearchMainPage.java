@@ -45,7 +45,7 @@ public class GoogleSearchMainPage implements SearchPage {
         driver.findElement(luckyBtn).click();        
     }
 
-    public List<WebElement> getSuggestionsList(String phrase) {
+    public List<WebElement> getSuggestionsList() {
         wait.until(ExpectedConditions.elementToBeClickable(sugestionList));
 
         return driver.findElements(sugestionList);
