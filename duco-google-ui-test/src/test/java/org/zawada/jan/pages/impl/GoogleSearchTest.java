@@ -65,13 +65,13 @@ public class GoogleSearchTest {
     @Test
     @Order(1)
     public void checkTitle() {
-        logger.info("Checking title of User Consent Page");
-        ScreenshotHelper.takeScreenshot(webDriver, screenshotPath, "preCheckTitleTest.png");
+        logger.info("Checking title of Search Page");
+        ScreenshotHelper.takeScreenshot(webDriver, screenshotPath, "preCheckSearchTitleTest.png");
 
         assertEquals("Google",googleUserConsentPage.getTitle());
 
-        ScreenshotHelper.takeScreenshot(webDriver, screenshotPath, "postCheckTitleTest.png");
-        logger.info("Finished checking title of User Consent Page");
+        ScreenshotHelper.takeScreenshot(webDriver, screenshotPath, "postCheckSearchTitleTest.png");
+        logger.info("Finished checking title of Search Page");
     }
 
     @ParameterizedTest
