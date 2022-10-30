@@ -25,13 +25,13 @@ public class GoogleSearchResultPage extends GoogleSearchMainPage {
         super(driver, wait);
     }
 
-    /*@Override
+    @Override
     public void search(String phrase) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(searchInput));
 
         driver.findElement(searchInput).sendKeys(phrase);
         driver.findElement(searchBtn).click();;
-    }*/
+    }
 
     public List<WebElement> getSearchResult() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(searchResults));
