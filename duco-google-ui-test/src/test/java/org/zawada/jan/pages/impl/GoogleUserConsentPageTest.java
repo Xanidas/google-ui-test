@@ -2,8 +2,6 @@ package org.zawada.jan.pages.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.time.Duration;
 import java.util.Properties;
 
@@ -11,9 +9,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.zawada.jan.UITestConfig;
 import org.zawada.jan.utils.ScreenshotHelper;
 
@@ -27,7 +27,8 @@ public class GoogleUserConsentPageTest {
     @BeforeAll
     public static void setup(){
         webDriver = new SafariDriver();
-        googleUserConsentPage = new GoogleUserConsentPage(webDriver);
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        googleUserConsentPage = new GoogleUserConsentPage(webDriver, wait);
 
         logger.info(webDriver.toString());
         

@@ -42,7 +42,7 @@ public class GoogleSearchTest {
 
         logger.info(webDriver.toString());
 
-        googleUserConsentPage = new GoogleUserConsentPage(webDriver);
+        googleUserConsentPage = new GoogleUserConsentPage(webDriver, wait);
         googleSearchMainPage = new GoogleSearchMainPage(webDriver, wait);
         googleSearchResultPage = new GoogleSearchResultPage(webDriver, wait);
         webDriver.manage().window().maximize();
