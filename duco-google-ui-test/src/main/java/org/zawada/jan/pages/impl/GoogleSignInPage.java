@@ -21,11 +21,13 @@ public class GoogleSignInPage {
 
     public void provideLoginId(String loginId) {
         driver.findElement(loginInput).sendKeys(loginId);
-        driver.findElement(nextBtn).click();
     }
 
     public void providePassword(String password) {
         driver.findElement(passwordInput).sendKeys(password);
+    }
+
+    public void clickNext() {
         driver.findElement(nextBtn).click();
     }
 

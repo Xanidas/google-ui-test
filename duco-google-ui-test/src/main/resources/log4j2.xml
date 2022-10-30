@@ -7,6 +7,9 @@
         <File name="ConsentFile" fileName="logs/tests/user-consent.log">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} - %message{nolookups}%xThrowable{separator(|)}%n" />
         </File>
+        <File name="ConsentFile" fileName="logs/tests/search.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} - %message{nolookups}%xThrowable{separator(|)}%n" />
+        </File>
     </Appenders>
     <Loggers>
         <Root level="ERROR">
@@ -16,6 +19,9 @@
             <AppenderRef ref="DefaultFile"/>
         </logger>
         <logger name="org.zawada.jan.pages.impl.GoogleUserConsentPageTest" level="INFO">
+            <AppenderRef ref="ConsentFile"/>
+        </logger>
+        <logger name="org.zawada.jan.pages.impl.GoogleSearchTest" level="INFO">
             <AppenderRef ref="ConsentFile"/>
         </logger>
     </Loggers>

@@ -14,6 +14,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.zawada.jan.UITestConfig;
 import org.zawada.jan.utils.ScreenshotHelper;
 
 public class GoogleUserConsentPageTest {
@@ -24,18 +25,17 @@ public class GoogleUserConsentPageTest {
 
     @BeforeAll
     public static void setup(){
-        try(InputStream props = GoogleUserConsentPageTest.class.getClassLoader().getResourceAsStream("config.properties")) {
-            properties = new Properties();
-            properties.load(props);
-        } catch (IOException ex) {
-            logger.error("Could not load properties", ex);
-        }
+
+        properties = UITestConfig.getProperties();
+
         webDriver = new SafariDriver();
         googleUserConsentPage = new GoogleUserConsentPage(webDriver);
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofMillis(500L));
+        
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofMillis(1000L));
         webDriver.manage().window().maximize();
- 
+
         webDriver.get(properties.getProperty("google.url"));
+        googleUserConsentPage.acceptAll();
     }
 
     @AfterAll
