@@ -12,10 +12,10 @@ import org.apache.logging.log4j.LogManager;
 public class ScreenshotHelper {
     private static Logger logger = LogManager.getLogger(ScreenshotHelper.class);
     
-    public static void takeScreenshot(WebDriver driver, String pathToFile) {
+    public static void takeScreenshot(WebDriver driver, String pathToFile, String fileName) {
         TakesScreenshot screanShot = ((TakesScreenshot) driver);
         File scrShotFile = screanShot.getScreenshotAs(OutputType.FILE);
-        File destFile = new File(pathToFile);
+        File destFile = new File(pathToFile.concat("/").concat(fileName));
         try {
             FileUtils.copyFile(scrShotFile, destFile);
         } catch (IOException ioe) {

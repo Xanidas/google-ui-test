@@ -21,13 +21,11 @@ public class GoogleUserConsentPageTest {
     public static WebDriver webDriver;
     static GoogleUserConsentPage googleUserConsentPage;
     private static Logger logger = LogManager.getLogger(GoogleUserConsentPageTest.class);
-    private static Properties properties;
+    private static Properties properties = UITestConfig.getProperties();
+    private static String screenshotPath = UITestConfig.getScreenshotPath();
 
     @BeforeAll
     public static void setup(){
-
-        properties = UITestConfig.getProperties();
-
         webDriver = new SafariDriver();
         googleUserConsentPage = new GoogleUserConsentPage(webDriver);
         
@@ -46,22 +44,22 @@ public class GoogleUserConsentPageTest {
     @Test
     public void checkTitle() {
         logger.info("Checking title of User Consent Page");
-        ScreenshotHelper.takeScreenshot(webDriver, "preCheckTitle.png");
+        ScreenshotHelper.takeScreenshot(webDriver, screenshotPath, "preCheckTitle.png");
 
         assertEquals("Google",googleUserConsentPage.getTitle());
 
-        ScreenshotHelper.takeScreenshot(webDriver, "postCheckTitle.png");
+        ScreenshotHelper.takeScreenshot(webDriver, screenshotPath, "postCheckTitle.png");
         logger.info("Finished checking title of User Consent Page");
     }
 
     @Test
     public void checkHeader() {
         logger.info("Checking header of User Consent Page");
-        ScreenshotHelper.takeScreenshot(webDriver, "preCheckHeader.png");
+        ScreenshotHelper.takeScreenshot(webDriver, screenshotPath, "preCheckHeader.png");
 
         assertEquals("Before you continue to Google", googleUserConsentPage.getHeader());
 
-        ScreenshotHelper.takeScreenshot(webDriver, "postCheckHeader.png");
+        ScreenshotHelper.takeScreenshot(webDriver, screenshotPath, "postCheckHeader.png");
         logger.info("Finished checking header of User Consent Page");
     }
 
